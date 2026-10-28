@@ -1,0 +1,1257 @@
+/* Theme decorations. Tokens live in index.css (arcade defaults) and are overridden below. */
+
+/* ═════════════════ Retro arcade ═════════════════ */
+
+[data-theme='arcade'] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0 1px, transparent 1px 4px);
+  z-index: 100;
+}
+
+[data-theme='arcade'] .brand h1 {
+  text-shadow:
+    3px 3px 0 var(--accent-2),
+    0 0 14px rgba(255, 230, 0, 0.45);
+  letter-spacing: 0.04em;
+}
+
+[data-theme='arcade'] .brand p::after {
+  content: '_';
+  animation: blink 1s steps(1) infinite;
+}
+
+[data-theme='arcade'] .logo {
+  box-shadow: 4px 4px 0 var(--accent-2);
+}
+
+[data-theme='arcade'] .panel-header h2 {
+  text-shadow: 0 0 10px color-mix(in srgb, var(--zone) 55%, transparent);
+}
+
+[data-theme='arcade'] .panel-header h2::before {
+  content: '▶ ';
+}
+
+[data-theme='arcade'] .empty::before {
+  content: '— ';
+}
+
+[data-theme='arcade'] .explanation p:last-child::after {
+  content: '█';
+  margin-left: 4px;
+  color: var(--accent);
+  animation: blink 1s steps(1) infinite;
+}
+
+[data-theme='arcade'] .card-frame::before {
+  content: '▓';
+  color: var(--zone);
+}
+
+[data-theme='arcade'] .console {
+  text-shadow: 0 0 3px rgba(61, 255, 110, 0.25);
+}
+
+[data-theme='arcade'] .progress > span {
+  background: repeating-linear-gradient(to right, var(--webapi) 0 6px, transparent 6px 8px);
+}
+
+[data-theme='arcade'] .loop-station.is-current rect {
+  filter: drop-shadow(0 0 6px var(--phase));
+}
+
+[data-theme='arcade'] .loop-station text,
+[data-theme='arcade'] .loop-label {
+  font-weight: 600;
+}
+
+[data-theme='arcade'] .card-tag,
+[data-theme='arcade'] .field > span {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+[data-theme='arcade'] .quiz-slot {
+  animation: blink 1s steps(1) infinite;
+}
+
+/* ═════════════════ Subway map ═════════════════ */
+
+[data-theme='metro'] {
+  --bg: #f2f1ec;
+  --bg-image: none;
+  --surface: #ffffff;
+  --surface-2: #f2f1ec;
+  --border: #dedcd4;
+  --border-strong: #1a1a1a;
+  --text: #1a1a1a;
+  --muted: #6b6b66;
+  --ink: #1a1a1a;
+  --on-ink: #ffffff;
+  --accent: #e3051b;
+  --accent-2: #0055a4;
+  --stack: #0055a4;
+  --webapi: #f2a900;
+  --task: #00a650;
+  --micro: #e4007c;
+  --render: #8d5ba6;
+  --error: #e3051b;
+  --step-line: rgba(0, 85, 164, 0.07);
+  --step-mark: rgba(0, 85, 164, 0.2);
+
+  --font-title: 'Overpass', system-ui, sans-serif;
+  --font-label: 'Overpass', system-ui, sans-serif;
+  --font-body: 'Overpass', system-ui, sans-serif;
+  --font-code: 'Overpass Mono', ui-monospace, monospace;
+  --body-size: 16px;
+  --code-size: 14px;
+  --title-size: 1.9rem;
+  --h2-size: 1.05rem;
+  --label-size: 0.78rem;
+  --tag-size: 0.68rem;
+  --label-transform: none;
+
+  --radius: 10px;
+  --panel-border: 0;
+  --panel-shadow: 0 1px 0 var(--border), 0 0 0 1px var(--border);
+  --header-border: 6px solid var(--ink);
+  --card-border: 2px solid var(--zone);
+  --card-bg: var(--surface);
+  --card-shadow: none;
+  --btn-border: 2px solid var(--ink);
+  --btn-shadow: none;
+  --btn-press: scale(0.97);
+  --motion: cubic-bezier(0.3, 0.7, 0.4, 1);
+  --console-bg: #161616;
+  --console-fg: #ffb300;
+  --track-width: 12;
+  --track-dash: none;
+
+  color-scheme: light;
+  line-height: 1.5;
+}
+
+[data-theme='metro'] .brand h1 {
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+[data-theme='metro'] .logo {
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 900;
+}
+
+[data-theme='metro'] .panel {
+  border-top: 8px solid var(--zone);
+}
+
+[data-theme='metro'] .panel-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+/* Line badge, like a subway line number. */
+[data-theme='metro'] .panel-header h2::before {
+  content: '';
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 4px solid var(--zone);
+  background: #fff;
+}
+
+[data-theme='metro'] .panel-header-row {
+  border-bottom: 2px solid var(--border);
+}
+
+[data-theme='metro'] .btn {
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+[data-theme='metro'] .btn-primary:hover:not(:disabled) {
+  color: #fff;
+}
+
+[data-theme='metro'] .lang-switch {
+  border-color: var(--ink);
+  border-radius: 999px;
+}
+
+[data-theme='metro'] .lang-switch button {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+[data-theme='metro'] .lang-switch button.is-active {
+  background: var(--ink);
+  color: #fff;
+}
+
+[data-theme='metro'] .card {
+  border-radius: 999px;
+  padding: 5px 14px 5px 8px;
+}
+
+[data-theme='metro'] .card::before {
+  content: '';
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--zone);
+}
+
+[data-theme='metro'] .card-tag {
+  font-weight: 800;
+}
+
+[data-theme='metro'] .card-webapi {
+  border-radius: 14px;
+}
+
+/* Departure board. */
+[data-theme='metro'] .panel-console .panel-header h2 {
+  color: #fff;
+}
+
+[data-theme='metro'] .console {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+[data-theme='metro'] .console-line {
+  border-bottom: 1px solid #2a2a2a;
+  padding: 4px 0;
+}
+
+[data-theme='metro'] .loop-track {
+  stroke: #d5d3cb;
+  stroke-linecap: round;
+}
+
+[data-theme='metro'] .loop-station rect,
+[data-theme='metro'] .loop-station.is-current rect {
+  rx: 50%;
+  fill: #fff;
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+
+[data-theme='metro'] .loop-station.is-current rect {
+  fill: var(--phase);
+  stroke-width: 5;
+}
+
+[data-theme='metro'] .loop-station text {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: none;
+}
+
+[data-theme='metro'] .loop-station.is-current text {
+  fill: var(--ink);
+}
+
+[data-theme='metro'] .loop-label {
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: none;
+}
+
+/* ═════════════════ Blueprint ═════════════════ */
+
+[data-theme='blueprint'] {
+  --bg: #0f3576;
+  --bg-image:
+    linear-gradient(rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  --surface: rgba(10, 40, 95, 0.78);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --border: rgba(220, 235, 255, 0.28);
+  --border-strong: rgba(235, 244, 255, 0.85);
+  --text: #eef5ff;
+  --muted: #a9c3ea;
+  --ink: #eef5ff;
+  --on-ink: #0f3576;
+  --accent: #ffffff;
+  --accent-2: #ffe58a;
+  --stack: #9fe3ff;
+  --webapi: #ffd27a;
+  --task: #a6ffcb;
+  --micro: #ffb3f0;
+  --render: #c9bcff;
+  --error: #ff9d9d;
+  --step-line: rgba(255, 229, 138, 0.1);
+  --step-mark: rgba(255, 229, 138, 0.28);
+
+  --font-title: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-label: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-body: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-code: 'IBM Plex Mono', ui-monospace, monospace;
+  --body-size: 14.5px;
+  --code-size: 13.5px;
+  --title-size: 1.35rem;
+  --h2-size: 0.78rem;
+  --label-size: 0.72rem;
+  --tag-size: 0.66rem;
+  --label-transform: uppercase;
+
+  --radius: 0;
+  --panel-border: 1.5px solid var(--border-strong);
+  --panel-shadow: none;
+  --header-border: 1.5px solid var(--border-strong);
+  --card-border: 1.5px dashed var(--zone);
+  --card-bg: transparent;
+  --card-shadow: none;
+  --btn-border: 1.5px solid var(--border-strong);
+  --btn-shadow: none;
+  --btn-press: translateY(1px);
+  --motion: ease-out;
+  --console-bg: rgba(5, 25, 65, 0.85);
+  --console-fg: #eef5ff;
+  --track-width: 1.5;
+  --track-dash: 6 4;
+
+  line-height: 1.55;
+}
+
+[data-theme='blueprint'] body {
+  background-size:
+    100px 100px,
+    100px 100px,
+    20px 20px,
+    20px 20px,
+    auto;
+}
+
+[data-theme='blueprint'] .brand h1 {
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+[data-theme='blueprint'] .brand p,
+[data-theme='blueprint'] .panel-hint {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3em;
+  line-height: 1.15;
+  color: var(--accent-2);
+}
+
+[data-theme='blueprint'] .logo {
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+}
+
+[data-theme='blueprint'] .panel {
+  position: relative;
+}
+
+/* Registration marks on each panel corner. */
+[data-theme='blueprint'] .panel::before,
+[data-theme='blueprint'] .panel::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid var(--accent);
+  pointer-events: none;
+}
+
+[data-theme='blueprint'] .panel::before {
+  top: -6px;
+  left: -6px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+[data-theme='blueprint'] .panel::after {
+  bottom: -6px;
+  right: -6px;
+  border-left: 0;
+  border-top: 0;
+}
+
+[data-theme='blueprint'] .panel-header h2 {
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+[data-theme='blueprint'] .panel-header h2::before {
+  content: '// ';
+  opacity: 0.6;
+}
+
+[data-theme='blueprint'] .btn {
+  background: transparent;
+  letter-spacing: 0.08em;
+}
+
+[data-theme='blueprint'] .btn-primary {
+  background: var(--accent);
+  color: var(--on-ink);
+}
+
+[data-theme='blueprint'] .btn-primary:hover:not(:disabled) {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+}
+
+[data-theme='blueprint'] .lang-switch {
+  border-width: 1.5px;
+}
+
+[data-theme='blueprint'] .explanation strong {
+  font-family: 'Caveat', cursive;
+  font-size: 1.35em;
+  font-weight: 700;
+}
+
+[data-theme='blueprint'] .loop-station text {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+
+[data-theme='blueprint'] .loop-station rect {
+  fill: var(--bg);
+  stroke-width: 1.5;
+}
+
+[data-theme='blueprint'] .loop-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+[data-theme='blueprint'] .console-line::before {
+  content: '$';
+}
+
+/* ═════════════════ Neo-brutalist ═════════════════ */
+
+[data-theme='brutalist'] {
+  --bg: #fff3c4;
+  --bg-image: none;
+  --surface: #ffffff;
+  --surface-2: #fff9e3;
+  --border: #000000;
+  --border-strong: #000000;
+  --text: #000000;
+  --muted: #3d3d3d;
+  --ink: #000000;
+  --on-ink: #000000;
+  --accent: #ffde00;
+  --accent-2: #ff4fa3;
+  --stack: #3a6cff;
+  --webapi: #ff9900;
+  --task: #00c46a;
+  --micro: #ff4fa3;
+  --render: #8b5cf6;
+  --error: #ff2b2b;
+  --step-line: rgba(255, 222, 0, 0.35);
+  --step-mark: rgba(255, 79, 163, 0.35);
+
+  --font-title: 'Archivo Black', 'Archivo', system-ui, sans-serif;
+  --font-label: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Archivo', system-ui, sans-serif;
+  --font-code: 'Space Mono', ui-monospace, monospace;
+  --body-size: 16px;
+  --code-size: 14px;
+  --title-size: 2rem;
+  --h2-size: 1.05rem;
+  --label-size: 0.8rem;
+  --tag-size: 0.66rem;
+  --label-transform: uppercase;
+
+  --radius: 0;
+  --panel-border: 3px solid #000;
+  --panel-shadow: 6px 6px 0 #000;
+  --header-border: 3px solid #000;
+  --card-border: 2.5px solid #000;
+  --card-bg: color-mix(in srgb, var(--zone) 30%, #fff);
+  --card-shadow: 3px 3px 0 #000;
+  --btn-border: 3px solid #000;
+  --btn-shadow: 4px 4px 0 #000;
+  --btn-press: translate(4px, 4px);
+  --motion: cubic-bezier(0.2, 1.4, 0.4, 1);
+  --console-bg: #000;
+  --console-fg: #fff;
+  --track-width: 6;
+  --track-dash: none;
+
+  color-scheme: light;
+  line-height: 1.5;
+}
+
+[data-theme='brutalist'] .topbar {
+  background: var(--accent);
+}
+
+[data-theme='brutalist'] .brand h1 {
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+[data-theme='brutalist'] .brand p {
+  color: #000;
+  font-weight: 600;
+}
+
+[data-theme='brutalist'] .logo {
+  background: var(--accent-2);
+  color: #000;
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 #000;
+}
+
+/* Full-colour header band per zone. */
+[data-theme='brutalist'] .panel-header {
+  margin: -3px -3px 0;
+  padding: 10px 16px;
+  background: var(--zone);
+  border: 3px solid #000;
+}
+
+[data-theme='brutalist'] .panel-header h2 {
+  color: #000;
+}
+
+[data-theme='brutalist'] .controls-footer > span:first-child {
+  padding: 2px 8px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 700;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
+}
+
+[data-theme='brutalist'] .panel-header-row {
+  border-bottom: 3px solid #000;
+}
+
+[data-theme='brutalist'] .panel-hint {
+  color: #000;
+  font-weight: 600;
+}
+
+[data-theme='brutalist'] .panel-code,
+[data-theme='brutalist'] .panel-console,
+[data-theme='brutalist'] .panel-loop {
+  --zone: #fff;
+}
+
+[data-theme='brutalist'] .panel-console .empty {
+  color: #fff;
+}
+
+[data-theme='brutalist'] .btn {
+  background: #fff;
+  font-weight: 800;
+}
+
+[data-theme='brutalist'] .btn:hover:not(:disabled) {
+  background: var(--accent-2);
+  border-color: #000;
+  color: #000;
+}
+
+[data-theme='brutalist'] .btn-primary {
+  background: var(--accent);
+  color: #000;
+}
+
+[data-theme='brutalist'] .lang-switch {
+  border: 3px solid #000;
+  background: #fff;
+}
+
+[data-theme='brutalist'] .lang-switch button {
+  color: #000;
+  font-weight: 800;
+}
+
+[data-theme='brutalist'] .lang-switch button.is-active {
+  background: #000;
+  color: var(--accent);
+}
+
+[data-theme='brutalist'] select {
+  border: 3px solid #000;
+  font-weight: 600;
+}
+
+[data-theme='brutalist'] .card-tag {
+  color: #000;
+  font-weight: 800;
+}
+
+[data-theme='brutalist'] .card-meta {
+  color: #000;
+}
+
+[data-theme='brutalist'] .explanation strong {
+  background: var(--accent);
+  color: #000;
+  padding: 0 4px;
+}
+
+[data-theme='brutalist'] code {
+  color: #000;
+  background: var(--accent);
+  border: 1.5px solid #000;
+}
+
+[data-theme='brutalist'] .loop-track {
+  stroke: #000;
+}
+
+[data-theme='brutalist'] .loop-station rect {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 3;
+}
+
+[data-theme='brutalist'] .loop-station.is-current rect {
+  fill: var(--phase);
+  stroke: #000;
+}
+
+[data-theme='brutalist'] .loop-station text,
+[data-theme='brutalist'] .loop-station.is-current text {
+  fill: #000;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+[data-theme='brutalist'] .loop-label {
+  font-size: 13px;
+}
+
+[data-theme='brutalist'] .progress {
+  border: 2px solid #000;
+  height: 10px;
+}
+
+/* ═════════════════ RPG (MMO interface: gold metal frames, parchment, loot colors) ═════════════════ */
+
+[data-theme='rpg'] {
+  /* Metal frame & parchment palette. */
+  --gold: #ffd100;
+  --gold-pale: #e6cc80;
+  --gold-dark: #a8842e;
+  --bronze: #6b4f1d;
+  --leather: #1a110a;
+  --parchment: #e8d7b0;
+  --parchment-ink: #2e1f0c;
+  --parchment-muted: #6e5736;
+
+  --bg: #0b0806;
+  --bg-image:
+    radial-gradient(ellipse at 50% -10%, rgba(140, 90, 20, 0.28), transparent 55%),
+    radial-gradient(ellipse at 50% 110%, rgba(60, 20, 90, 0.35), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.012) 0 2px, transparent 2px 4px);
+  --surface: #15100a;
+  --surface-2: #241a10;
+  --border: #3a2a16;
+  --border-strong: var(--gold-dark);
+  --text: #f0e6d2;
+  --muted: #a89878;
+  --ink: var(--gold);
+  --on-ink: #2a1a05;
+  --accent: var(--gold);
+  --accent-2: var(--gold-pale);
+  /* Item quality colors: rare, legendary, uncommon, epic, heirloom. */
+  --stack: #3d8eff;
+  --webapi: #ff8000;
+  --task: #1eff00;
+  --micro: #b56cff;
+  --render: #00ccff;
+  --error: #ff3c3c;
+  --step-line: rgba(255, 209, 0, 0.08);
+  --step-mark: rgba(255, 209, 0, 0.22);
+
+  --font-title: 'Cinzel', Georgia, serif;
+  --font-label: 'Cinzel', Georgia, serif;
+  --font-body: 'Alegreya', Georgia, serif;
+  --font-code: 'IBM Plex Mono', ui-monospace, monospace;
+  --body-size: 17px;
+  --code-size: 14px;
+  --title-size: 1.9rem;
+  --h2-size: 0.95rem;
+  --label-size: 0.7rem;
+  --tag-size: 0.6rem;
+  --label-transform: uppercase;
+
+  --radius: 3px;
+  /* Gold / black / gold: a riveted metal frame. */
+  --panel-border: 2px solid var(--gold-dark);
+  --panel-shadow:
+    0 0 0 1px #000, 0 0 0 3px var(--bronze), 0 0 0 4px #000, inset 0 0 0 1px #000, inset 0 0 50px rgba(0, 0, 0, 0.55),
+    0 12px 30px rgba(0, 0, 0, 0.7);
+  --header-border: 1px solid #000;
+  --card-border: 1px solid var(--zone);
+  --card-bg: color-mix(in srgb, var(--zone) 9%, #110b06);
+  --card-shadow: 0 0 0 1px #000, inset 0 0 0 1px rgba(0, 0, 0, 0.7), 0 4px 10px rgba(0, 0, 0, 0.55);
+  --btn-border: 1px solid #000;
+  --btn-shadow: 0 0 0 1px var(--gold-dark), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 2px 4px rgba(0, 0, 0, 0.7);
+  --btn-press: translateY(1px);
+  --motion: ease;
+  --console-bg: #090604;
+  --console-fg: #f0e6d2;
+  --track-width: 2;
+  --track-dash: 1 0;
+
+  /* Four rivets, one per corner. */
+  --rivet: var(--gold-pale) 0 2px, var(--gold-dark) 2.5px, #000 3.5px, transparent 4.5px;
+  --rivets:
+    radial-gradient(circle at 9px 9px, var(--rivet)), radial-gradient(circle at calc(100% - 9px) 9px, var(--rivet)),
+    radial-gradient(circle at 9px calc(100% - 9px), var(--rivet)),
+    radial-gradient(circle at calc(100% - 9px) calc(100% - 9px), var(--rivet));
+
+  line-height: 1.4;
+}
+
+/* Darkened screen edges, like the in-game vignette. */
+[data-theme='rpg'] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.55));
+  z-index: 100;
+}
+
+/* ── Title bar ── */
+
+[data-theme='rpg'] .topbar {
+  background: linear-gradient(#1e140b, #0e0905);
+  box-shadow:
+    0 1px 0 var(--gold-dark),
+    0 2px 0 #000,
+    0 6px 18px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme='rpg'] .brand h1 {
+  font-family: 'Metamorphous', 'Cinzel', Georgia, serif;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000,
+    0 0 14px rgba(255, 209, 0, 0.35);
+}
+
+[data-theme='rpg'] .brand p {
+  font-style: italic;
+  color: var(--gold-pale);
+}
+
+/* Unit portrait: round frame with a level badge. */
+[data-theme='rpg'] .logo {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #5a3414, #140c05 70%);
+  color: var(--gold);
+  font-size: 1.6rem;
+  border: 2px solid var(--gold-dark);
+  box-shadow:
+    0 0 0 1px #000,
+    0 0 0 4px var(--bronze),
+    0 0 0 5px #000,
+    0 0 16px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme='rpg'] .logo::after {
+  content: '60';
+  position: absolute;
+  right: -8px;
+  bottom: -6px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  box-shadow: 0 0 0 1px var(--gold-dark);
+  background: linear-gradient(#5a1f10, #2a0d05);
+  color: var(--gold);
+  font-family: var(--font-label);
+  font-weight: 800;
+  font-size: 0.62rem;
+}
+
+/* ── Fields & switches ── */
+
+[data-theme='rpg'] .field > span {
+  color: var(--gold-pale);
+  letter-spacing: 0.06em;
+}
+
+[data-theme='rpg'] select {
+  padding: 6px 10px;
+  border: 1px solid #000;
+  box-shadow:
+    0 0 0 1px var(--gold-dark),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background: linear-gradient(#2a1a0c, #140b04);
+  color: var(--gold);
+}
+
+[data-theme='rpg'] .lang-switch {
+  border: 1px solid #000;
+  box-shadow: 0 0 0 1px var(--gold-dark);
+  background: var(--leather);
+}
+
+[data-theme='rpg'] .lang-switch button {
+  color: var(--gold-pale);
+  text-shadow: 1px 1px 0 #000;
+}
+
+[data-theme='rpg'] .lang-switch button.is-active {
+  background: linear-gradient(#ffe08a, #d4a017 50%, #9a6b0a);
+  color: var(--on-ink);
+  text-shadow: none;
+}
+
+[data-theme='rpg'] .toggle {
+  color: var(--gold-pale);
+}
+
+[data-theme='rpg'] .toggle input {
+  accent-color: var(--gold);
+}
+
+/* ── Frames ── */
+
+[data-theme='rpg'] .panel {
+  background: var(--rivets), var(--surface);
+}
+
+[data-theme='rpg'] .panel-header {
+  padding-bottom: 10px;
+  background: linear-gradient(90deg, transparent, var(--gold-dark) 25%, var(--gold-dark) 75%, transparent) bottom / 100%
+    1px no-repeat;
+}
+
+[data-theme='rpg'] .panel-header-row {
+  border-bottom: 0;
+}
+
+[data-theme='rpg'] .panel-header h2 {
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  text-shadow: 1px 1px 0 #000;
+}
+
+/* Quest markers: "!" to pick up, "?" to turn in (the console is where the story ends). */
+[data-theme='rpg'] .panel-header h2::before {
+  content: '!';
+  display: inline-block;
+  width: 1.2em;
+  color: var(--gold);
+  font-weight: 800;
+  text-shadow:
+    0 0 8px rgba(255, 209, 0, 0.7),
+    1px 1px 0 #000;
+}
+
+[data-theme='rpg'] .panel-console .panel-header h2::before {
+  content: '?';
+}
+
+[data-theme='rpg'] .panel-hint {
+  font-style: italic;
+}
+
+[data-theme='rpg'] .empty {
+  font-style: italic;
+  color: var(--parchment-muted);
+}
+
+[data-theme='rpg'] .empty::before {
+  content: '✧ ';
+  color: var(--gold-dark);
+}
+
+/* ── Parchment: the quest log (explanation) and the quest reward (quiz) ── */
+
+[data-theme='rpg'] .panel-explanation,
+[data-theme='rpg'] .panel-quiz {
+  --surface: var(--parchment);
+  --surface-2: #f4e8cc;
+  --text: var(--parchment-ink);
+  --muted: var(--parchment-muted);
+  --border: #b89a62;
+  --zone: #7a2e0e;
+  color: var(--parchment-ink);
+  background:
+    var(--rivets), radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.35), transparent 60%),
+    radial-gradient(ellipse at 100% 100%, rgba(120, 80, 30, 0.25), transparent 50%),
+    repeating-linear-gradient(0deg, rgba(90, 60, 20, 0.05) 0 1px, transparent 1px 3px),
+    linear-gradient(#ead9b4, #d8c28f);
+}
+
+[data-theme='rpg'] .panel-explanation .panel-header h2,
+[data-theme='rpg'] .panel-quiz .panel-header h2 {
+  color: var(--parchment-ink);
+  text-shadow: none;
+}
+
+[data-theme='rpg'] .panel-explanation .panel-header h2::before,
+[data-theme='rpg'] .panel-quiz .panel-header h2::before {
+  color: #c8720a;
+  text-shadow: none;
+}
+
+[data-theme='rpg'] .panel-explanation .panel-header,
+[data-theme='rpg'] .panel-quiz .panel-header {
+  background-image: linear-gradient(90deg, transparent, #8a6d3b 25%, #8a6d3b 75%, transparent);
+}
+
+[data-theme='rpg'] .explanation {
+  font-size: 1.12em;
+}
+
+[data-theme='rpg'] .explanation strong {
+  color: #8b1a1a;
+}
+
+[data-theme='rpg'] .panel-explanation code,
+[data-theme='rpg'] .panel-quiz code {
+  color: #5c2a0a;
+  background: rgba(59, 42, 20, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(59, 42, 20, 0.2);
+}
+
+[data-theme='rpg'] .error {
+  border-color: #a01818;
+  color: #a01818;
+  background: rgba(160, 24, 24, 0.08);
+}
+
+[data-theme='rpg'] .quiz-answer {
+  border-color: #8a6d3b;
+  background: rgba(59, 42, 20, 0.06);
+}
+
+[data-theme='rpg'] .quiz-chip {
+  border: 1px solid #000;
+  box-shadow:
+    0 0 0 1px var(--gold-dark),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(#fff5dc, #ead9b4);
+  color: var(--parchment-ink);
+}
+
+[data-theme='rpg'] .quiz-option:hover {
+  color: #7a2e0e;
+  box-shadow:
+    0 0 0 1px #c8720a,
+    0 0 10px rgba(200, 114, 10, 0.5);
+}
+
+[data-theme='rpg'] .quiz-slot {
+  color: var(--parchment-muted);
+}
+
+[data-theme='rpg'] .quiz-chip.is-right,
+[data-theme='rpg'] .quiz-result.is-right {
+  color: #1e7a1e;
+}
+
+[data-theme='rpg'] .quiz-chip.is-right {
+  box-shadow: 0 0 0 1px #1e7a1e;
+}
+
+[data-theme='rpg'] .quiz-chip.is-wrong,
+[data-theme='rpg'] .quiz-result.is-wrong {
+  color: #a01818;
+}
+
+[data-theme='rpg'] .quiz-chip.is-wrong {
+  box-shadow: 0 0 0 1px #a01818;
+}
+
+[data-theme='rpg'] .panel-quiz .btn {
+  color: var(--gold);
+}
+
+[data-theme='rpg'] .panel-quiz .btn-ghost {
+  color: #7a2e0e;
+  text-shadow: none;
+}
+
+/* ── Action bar: buttons ── */
+
+[data-theme='rpg'] .btn {
+  background: linear-gradient(#5a1f10, #2a0d05);
+  color: var(--gold);
+  text-shadow: 1px 1px 0 #000;
+  letter-spacing: 0.04em;
+}
+
+[data-theme='rpg'] .btn:hover:not(:disabled) {
+  color: #fff3b0;
+  box-shadow:
+    0 0 0 1px var(--gold),
+    0 0 12px rgba(255, 209, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='rpg'] .btn-primary {
+  background: linear-gradient(#ffe08a, #d4a017 50%, #9a6b0a);
+  color: var(--on-ink);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+[data-theme='rpg'] .btn-primary:hover:not(:disabled) {
+  background: linear-gradient(#fff0b8, #e8b52a 50%, #b07d0e);
+  color: var(--on-ink);
+}
+
+[data-theme='rpg'] .btn-ghost {
+  background: transparent;
+  color: var(--gold-pale);
+}
+
+[data-theme='rpg'] .btn-click {
+  background: linear-gradient(#7a3a08, #3a1a04);
+  color: #ffb45c;
+}
+
+[data-theme='rpg'] .btn-click:hover:not(:disabled) {
+  background: linear-gradient(#ff9a2e, #c45f00);
+  color: var(--on-ink);
+  box-shadow:
+    0 0 0 1px #ffb45c,
+    0 0 12px rgba(255, 128, 0, 0.5);
+}
+
+[data-theme='rpg'] .controls-footer > span:first-child {
+  color: var(--gold-pale);
+  letter-spacing: 0.06em;
+}
+
+/* Experience bar. */
+[data-theme='rpg'] .timeline {
+  appearance: none;
+  height: 12px;
+  margin: 8px 0;
+  border: 1px solid #000;
+  border-radius: 2px;
+  box-shadow:
+    0 0 0 1px var(--bronze),
+    inset 0 2px 4px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(#7a46c4, #3a1a66 60%, #2a1250);
+}
+
+[data-theme='rpg'] .timeline::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  background: linear-gradient(#ffe08a, #b8860b);
+  box-shadow: 0 0 8px rgba(255, 209, 0, 0.7);
+  cursor: pointer;
+}
+
+[data-theme='rpg'] .timeline::-moz-range-track {
+  background: transparent;
+}
+
+[data-theme='rpg'] .timeline::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  background: linear-gradient(#ffe08a, #b8860b);
+  box-shadow: 0 0 8px rgba(255, 209, 0, 0.7);
+  cursor: pointer;
+}
+
+/* ── Loot: cards as item tooltips, colored by quality ── */
+
+[data-theme='rpg'] .card {
+  padding: 7px 12px;
+  font-family: var(--font-body);
+  font-size: 1em;
+}
+
+[data-theme='rpg'] .card-name {
+  color: var(--zone);
+  text-shadow: 1px 1px 0 #000;
+}
+
+[data-theme='rpg'] .card-tag {
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+[data-theme='rpg'] .card-frame::before {
+  content: '•';
+  color: var(--zone);
+}
+
+/* The frame on top of the stack is the current target. */
+[data-theme='rpg'] .card-frame.is-top {
+  background: color-mix(in srgb, var(--zone) 18%, #110b06);
+  box-shadow:
+    0 0 0 1px #000,
+    inset 0 0 0 1px rgba(0, 0, 0, 0.7),
+    0 0 14px color-mix(in srgb, var(--zone) 55%, transparent);
+}
+
+[data-theme='rpg'] .card-frame.is-top::before {
+  content: '⚔';
+}
+
+[data-theme='rpg'] .card.is-picked {
+  animation: rpg-glow 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes rpg-glow {
+  from {
+    box-shadow:
+      0 0 0 1px #000,
+      0 0 4px var(--gold);
+  }
+
+  to {
+    box-shadow:
+      0 0 0 1px var(--gold),
+      0 0 18px var(--gold);
+  }
+}
+
+/* Cast bar. */
+[data-theme='rpg'] .progress {
+  height: 12px;
+  margin-top: 6px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  box-shadow:
+    0 0 0 1px var(--bronze),
+    inset 0 2px 4px rgba(0, 0, 0, 0.8);
+  background: #1b1208;
+}
+
+[data-theme='rpg'] .progress > span {
+  background: linear-gradient(#ffd27a, #ff8000 50%, #b85600);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 0 8px rgba(255, 128, 0, 0.6);
+}
+
+/* ── Compass: the event loop ── */
+
+[data-theme='rpg'] .loop-track {
+  stroke: var(--gold-dark);
+}
+
+[data-theme='rpg'] .loop-station rect {
+  rx: 1px;
+  fill: var(--leather);
+  stroke: var(--gold-dark);
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(45deg);
+}
+
+[data-theme='rpg'] .loop-station.is-current rect {
+  fill: var(--phase);
+  stroke: var(--gold-pale);
+  filter: drop-shadow(0 0 6px var(--phase));
+}
+
+[data-theme='rpg'] .loop-station text {
+  font-size: 7px;
+  letter-spacing: 0.03em;
+  fill: var(--gold-pale);
+}
+
+[data-theme='rpg'] .loop-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  fill: var(--gold);
+}
+
+[data-theme='rpg'] .loop-clock {
+  fill: var(--gold-pale);
+}
+
+/* ── Chat log: the console ── */
+
+[data-theme='rpg'] .panel-console {
+  background: var(--rivets), var(--console-bg);
+}
+
+[data-theme='rpg'] .console {
+  font-family: var(--font-body);
+  font-size: 1.05em;
+}
+
+[data-theme='rpg'] .console-line::before {
+  content: '[Log]';
+  font-family: var(--font-code);
+  font-size: 0.8em;
+  color: var(--gold);
+}
+
+[data-theme='rpg'] .console-line.level-warn::before {
+  content: '[Warn]';
+  color: var(--webapi);
+}
+
+[data-theme='rpg'] .console-line.level-error::before {
+  content: '[Error]';
+  color: var(--error);
+}
+
+/* ── Spellbook: the code editor ── */
+
+[data-theme='rpg'] .editor .cm-gutters {
+  border-right: 1px solid var(--border);
+}
+
+[data-theme='rpg'] .cm-step-mark {
+  box-shadow:
+    0 0 0 1px var(--gold),
+    0 0 8px rgba(255, 209, 0, 0.4);
+}
+
+[data-theme='rpg'] code {
+  color: var(--gold-pale);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px #000;
+}
+
+/* Thick tracks swallow a chevron of the same color: contrast it with the line. */
+[data-theme='brutalist'] .loop-arrow {
+  stroke: #fff;
+  stroke-width: 2.5;
+}
+
+[data-theme='metro'] .loop-arrow {
+  stroke: var(--ink);
+  stroke-width: 2.5;
+}
